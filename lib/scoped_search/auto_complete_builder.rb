@@ -220,8 +220,9 @@ module ScopedSearch
 
     def completer_scope(field)
       klass = field.klass
-      scope =  klass.respond_to?(:completer_scope) ? klass.completer_scope(@options) : klass
-      scope.respond_to?(:reorder) ? scope.reorder(field.quoted_field) : scope.scoped(:order => field.quoted_field)
+      scope = klass.respond_to?(:completer_scope) ? klass.completer_scope(@options) : klass
+      quoted_field = Arel.sql(field.quoted_field)
+      scope.respond_to?(:reorder) ? scope.reorder(quoted_field) : scope.scoped(:order => quoted_field)
     end
 
     # set value completer
