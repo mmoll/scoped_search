@@ -14,21 +14,15 @@ script:
 - bundle exec rake
 
 rvm:
-- "2.2.2"
-- "2.3.7"
-- "2.4.0"
-- "2.5.1"
 - "2.6.0"
 - "2.7.1"
-- ruby-head
-- jruby
-- jruby-head
 
 gemfile:
 - Gemfile.activerecord52
 - Gemfile.activerecord52_with_activesupport52
 - Gemfile.activerecord60
 - Gemfile.activerecord60_with_activesupport60
+- Gemfile.rails_master
 
 matrix:
   allow_failures:
@@ -40,15 +34,3 @@ matrix:
       gemfile: Gemfile.activerecord52
     - rvm: "2.7.1"
       gemfile: Gemfile.activerecord52_with_activesupport52
-    - rvm: "2.2.2"
-      gemfile: Gemfile.activerecord60
-    - rvm: "2.3.7"
-      gemfile: Gemfile.activerecord60
-    - rvm: "2.4.0"
-      gemfile: Gemfile.activerecord60
-    - rvm: "2.2.2"
-      gemfile: Gemfile.activerecord60_with_activesupport60
-    - rvm: "2.3.7"
-      gemfile: Gemfile.activerecord60_with_activesupport60
-    - rvm: "2.4.0"
-      gemfile: Gemfile.activerecord60_with_activesupport60
